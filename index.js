@@ -1,4 +1,4 @@
-class ProductManager {
+/*class ProductManager {
     constructor() {
         this.productos = [];
     }
@@ -98,4 +98,4 @@ console.log(TM.getProductos());
 const productos = TM.getProductos();
 productos.forEach(producto => {
     console.log("Imágenes del producto:", producto.imagenes);
-});
+});*/
