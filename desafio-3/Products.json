@@ -1,0 +1,83 @@
+[
+    {
+      "nombre": "Dada Honey",
+      "id": "1",
+      "detalle": "dulce",
+      "precio": "1500",
+      "stock": "10",
+      "igm": "desafio-3/imagenes/cosecha.webp"
+    },
+    {
+      "nombre": "Cosecha Tardia",
+      "id": "2",
+      "detalle": "dulce",
+      "precio": "1000",
+      "stock": "10",
+      "igm": "./desafio-3/imagenes/ficha-tecnica-frente-768x1084.png"
+    },
+    {
+      "nombre": "Jagermeister",
+      "id": "3",
+      "detalle": "herval",
+      "precio": "10000",
+      "stock": "10",
+      "igm": "./desafio-3/imagenes/jager.jpg"
+    },
+    {
+      "nombre": "Bombay Sapphire London Dry",
+      "id": "4",
+      "detalle": "blanca",
+      "precio": "7500",
+      "stock": "10",
+      "igm": "https://http2.mlstatic.com/D_NQ_NP_2X_669612-MLA43643320606_102020-F.webp"
+    },
+    {
+      "nombre":"Tequila Jose Cuervo Especial gold",
+      "id": "5",
+      "detalle": "blanca",
+      "precio": "10000",
+      "stock": "10",
+      "igm": "./desafio-3/imagenes/cuervo-dorado.jpg"
+    },
+    {
+      "nombre": "Tequila Jose Cuervo Especial silver",
+      "id": "6",
+      "detalle": "blanca",
+      "precio": "9000",
+      "stock": "10",
+      "igm": "./desafio-3/imagenes/cuervo-plata.jpg"
+    },
+    {
+      "nombre": "Chivas Mizunara",
+      "id": "7",
+      "detalle": "blanca",
+      "precio": "20500",
+      "stock": "10",
+      "igm": "./desafio-3/imagenes/chivas.webp"
+    },
+    {
+      "nombre": "Ron Medellín",
+      "id": "8",
+      "detalle": "blanca",
+      "precio": "40000",
+      "stock": "10",
+      "igm": "./desafio-3/imagenes/ron.jpg"
+    },
+    {
+      "nombre": "Licor Frances De Violetas J. Cartron",
+      "id": "9",
+      "detalle": "dulce",
+      "precio": "10000",
+      "stock": "10",
+      "igm": "./desafio-3/imagenes/dulce1.webp"
+    },
+    {
+      "nombre": "Emilia Dulce",
+      "id": "10",
+      "detalle": "dulce",
+      "precio": "1300",
+      "stock": "10",
+      "igm": "./desafio-3/imagenes/dulce2.webp"
+    }
+  ]
+  
