@@ -1,0 +1,35 @@
+[
+    {
+      "nombre": "Dada Honey",
+      "id": "1",
+      "detalle": "dulce",
+      "precio": "1500",
+      "stock": "10",
+      "igm": "desafio-3/imagenes/cosecha.webp"
+    },
+    {
+      "nombre": "Cosecha Tardia",
+      "id": "2",
+      "detalle": "dulce",
+      "precio": "1000",
+      "stock": "10",
+      "igm": "./desafio-3/imagenes/ficha-tecnica-frente-768x1084.png"
+    },
+    {
+      "nombre": "Jagermeister",
+      "id": "10",
+      "detalle": "herval",
+      "precio": "10000",
+      "stock": "10",
+      "igm": "./desafio-3/imagenes/jager.jpg"
+    },
+    {
+      "nombre": "Bombay Sapphire London Dry",
+      "id": "10",
+      "detalle": "blanca",
+      "precio": "7500",
+      "stock": "10",
+      "igm": "https://http2.mlstatic.com/D_NQ_NP_2X_669612-MLA43643320606_102020-F.webp"
+    }
+  ]
+  
