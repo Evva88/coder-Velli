@@ -1,31 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Productos en tiempo real</title>
-  <script src="/socket.io/socket.io.js"></script>
-  <script>
-    var socket = io();
 
-    socket.on('product_created', function (newProduct) {
-      var productElement = document.createElement('li');
-      productElement.textContent = newProduct.title; 
-      productElement.id = 'product-' + newProduct.id; 
-      document.getElementById('productList').appendChild(productElement);
-    });
 
-    socket.on('product_deleted', function (deletedProduct) {
-      var productElement = document.getElementById('product-' + deletedProduct.id);
-      if (productElement) {
-        productElement.remove();
-      }
-    });
-  </script>
-</head>
-<body>
-  <ul id="productList">
-    {{#each products}}
-      <li id="product-{{this.id}}">{{this.nombre}}</li> 
-    {{/each}}
-  </ul>
-</body>
-</html>
+
+<form id="form">
+    <h2>Ingrese el producto</h2>
+    <input class="contols" type="text" name="nombre" id="nombre" planceholder="Nombre del productos" required>
+
+    <input class="contols" type="text" name="detalle" id="detalle" planceholder="detalle del producto" required>
+
+    <input class="contols" type="text" name="stock" id="stock" planceholder="stock" required>
+
+    <input class="contols" type="text" name="precio" id="precio" planceholder="precio" required>
+
+    <input class="contols" type="text" name="img" id="img" planceholder="imagen del producto" required>
+
+    <input class="contols" type="codigo" name="codigo" id="codigo" planceholde="codigo del producto">
+
+    <button class="botons" type="submit" id="add-btn">Registrar nuevo Producto</button>
+    <h2>Eliminar el producto:</h2>
+    <input class="contol" type="number" name="id-prod" id="id-prod" placeholder="Ingrese el ID del producto a eliminar">
+    <button class="btn" type="button" id="delete-btn">Eliminar</button>
+
+
+</form>
+
+<article id="product-list"></article>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="./realtime.js"></script>

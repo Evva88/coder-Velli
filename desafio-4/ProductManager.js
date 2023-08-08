@@ -1,10 +1,13 @@
 import fs from "fs";
+import path from 'path';
+
 
 class ProductManager {
   constructor() {
     this.products = [];
-    this.path = "products.json";
+    this.path = "Products.json";
     this.loadProducts();
+    
   }
 
 
@@ -48,6 +51,7 @@ class ProductManager {
       { name: "nombre", value: newProduct.nombre },
       { name: "detalle", value: newProduct.detalle },
       { name: "precio", value: newProduct.precio },
+      { name: "img", value: newProduct.img,},
       { name: "codigo", value: newProduct.codigo },
       { name: "stock", value: newProduct.stock },
     ];
@@ -60,11 +64,11 @@ class ProductManager {
     }
 
     const productExists = this.products.find(
-      (product) => product.code === newProduct.code
+      (product) => product.code === newProduct.codigo
     );
 
     if (productExists) {
-      console.error("El código ya existe", productExists.code);
+      console.error("El código ya existe", productExists.codigo);
       throw new Error("El código del producto ya existe");
     }
 
@@ -78,7 +82,7 @@ class ProductManager {
       nombre: newProduct.nombre,
       detalle: newProduct.detalle,
       precio: newProduct.precio,
-      thumbnail: `https://picsum.photos/200/300?random=${id}`,
+      img: newProduct.img,
       codigo: newProduct.codigo,
       stock: newProduct.stock,
       status: newProduct.status,
@@ -156,5 +160,8 @@ class ProductManager {
     );
   }
 }
+
+
+  
 
 export default ProductManager;

@@ -2,8 +2,9 @@ import express from 'express';
 import handlebars from 'express-handlebars';
 import { fileURLToPath } from 'url'; 
 import path from 'path'; 
-import router from './routes/products.router.js';
+import viewsRouter from './routes/views.router.js';
 import { Server } from 'socket.io';
+import ProductManager from './ProductManager.js';
 
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename); 
@@ -11,28 +12,43 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const puerto = 8080;
 
+
+
 const httpServer = app.listen(puerto, () => {
   console.log(`Servidor escuchando en puerto ${puerto}`);
 });
-const socketServer = new Server(httpServer);
-
-app.engine('handlebars', handlebars.engine);
-
-
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'handlebars');
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended:true}));
+app.use(express.static(__dirname+"/public"))
 
-app.use('/', router);
+app.engine("handlebars", handlebars.engine());
+app.set("view engine","handlebars");
+app.set("views", __dirname+"/views")
+app.use("/", viewsRouter);
 
-socketServer.on('connection', (socket) => {
-  console.log('Un cliente se ha conectado');
-  socket.on('message', (data) => {
-    console.log(data);
+
+
+const PM = new ProductManager(__dirname + "/Products.json");
+const socketServer = new Server(httpServer);
+
+socketServer.on("connection", async (socket) => {
+  console.log("Cliente conectado con ID:", socket.id);
+
+  const updatedProducts = await PM.getProducts({});
+  socketServer.emit("vistaProductos", updatedProducts);
+
+  socket.on("addProduct", async (productos) => {
+    await PM.addProduct(productos);
+    const updatedProducts = await PM.getProducts({});
+    socketServer.emit("vistaProductos", updatedProducts);
   });
 
-  socket.emit('socket_individual', 'Hola cliente #1');
+  socket.on("deleteProduct", async (id) => {
+    await PM.deleteProduct(id);
+    const updatedProducts = await PM.getProducts({});
+    socketServer.emit("vistaProductos", updatedProducts);
+  });
 });
+
+

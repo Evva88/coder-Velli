@@ -1,17 +1,25 @@
 import express from "express";
-import ProductManager from "../ProductManager.js"; 
-const router = express.Router();
-const pm = new ProductManager(); 
+import ProductManager from "../ProductManager.js";
+import { __dirname } from "../utils.js";
 
-router.get("/", (req, res) => {
-  pm.getProducts((err, products) => {
-    if (err) {
-      console.log("Error al cargar los productos:", err);
-      res.status(500).send("Error al cargar los productos");
-    } else {
-      res.render("index", { products }); 
-    }
-  });
+const router = express.Router();
+const PM = new ProductManager(__dirname + "./Products.json");
+
+router.get("/", async (req, res) => {
+  try {
+    const products = await PM.getProducts();
+    res.render("layouts/main", { products });
+  } catch (err) {
+    console.log("Error al cargar los productos:", err);
+    res.status(500).send("Error al cargar los productos");
+  }
+});
+
+router.get("/realtimeproducts", (req,res)=>{
+  res.render("layouts/realtimeproducts");
 });
 
 export default router;
+
+
+
